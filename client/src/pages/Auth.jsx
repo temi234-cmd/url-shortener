@@ -15,7 +15,7 @@ function Auth() {
     setError('');
     try {
       const endpoint = isLogin ? '/api/auth/login' : '/api/auth/signup';
-      const res = await axios.post(`http://localhost:5000${endpoint}`, { email, password });
+      const res = await axios.post(`https://url-shortener-api-cvh5.onrender.com${endpoint}`, { email, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('email', res.data.email);
       navigate('/dashboard');

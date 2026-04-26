@@ -18,7 +18,7 @@ function Analytics() {
 
   const fetchUrl = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/urls/my-urls', { headers });
+      const res = await axios.get('https://url-shortener-api-cvh5.onrender.com/api/urls/my-urls', { headers });
       const found = res.data.find(u => u._id === id);
       setUrl(found);
     } catch (err) {
@@ -29,7 +29,7 @@ function Analytics() {
   const fetchInsight = async () => {
     setLoadingInsight(true);
     try {
-      const res = await axios.get(`http://localhost:5000/api/urls/${id}/insight`, { headers });
+      const res = await axios.get(`https://url-shortener-api-cvh5.onrender.com/api/urls/${id}/insight`, { headers });
       setInsight(res.data.insight);
     } catch (err) {
       console.error(err);
@@ -50,7 +50,7 @@ function Analytics() {
 
       <div style={styles.card}>
         <h2 style={styles.cardTitle}>Link Details</h2>
-        <p style={styles.shortUrl}><Link size={14} style={{marginRight:'4px'}} /> http://localhost:5000/{url.shortCode}</p>
+        <p style={styles.shortUrl}><Link size={14} style={{marginRight:'4px'}} /> https://url-shortener-api-cvh5.onrender.com/{url.shortCode}</p>
         <p style={styles.originalUrl}>Original: {url.originalUrl}</p>
         <p style={styles.created}>Created: {new Date(url.createdAt).toLocaleDateString()}</p>
       </div>

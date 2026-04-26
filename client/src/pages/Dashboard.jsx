@@ -15,7 +15,7 @@ function Dashboard() {
 
   const fetchUrls = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/urls/my-urls', { headers });
+      const res = await axios.get('https://url-shortener-api-cvh5.onrender.com/api/urls/my-urls', { headers });
       setUrls(res.data);
     } catch (err) {
       console.error(err);
@@ -31,7 +31,7 @@ function Dashboard() {
     setLoading(true);
     setError('');
     try {
-      await axios.post('http://localhost:5000/api/urls/shorten', { originalUrl }, { headers });
+      await axios.post('https://url-shortener-api-cvh5.onrender.com/api/urls/shorten', { originalUrl }, { headers });
       setOriginalUrl('');
       fetchUrls();
     } catch (err) {
@@ -46,7 +46,7 @@ function Dashboard() {
   };
 
   const copyToClipboard = (shortCode) => {
-    navigator.clipboard.writeText(`http://localhost:5000/${shortCode}`);
+    navigator.clipboard.writeText(`https://url-shortener-api-cvh5.onrender.com/${shortCode}`);
     alert('Link copied to clipboard!');
   };
 
@@ -89,7 +89,7 @@ function Dashboard() {
         {urls.map(url => (
           <div key={url._id} style={styles.urlCard}>
             <div style={styles.urlInfo}>
-              <p style={styles.shortUrl}><Link size={14} style={{marginRight:'4px'}} /> http://localhost:5000/{url.shortCode}</p>
+              <p style={styles.shortUrl}><Link size={14} style={{marginRight:'4px'}} /> https://url-shortener-api-cvh5.onrender.com/{url.shortCode}</p>
               <p style={styles.originalUrl}>{url.originalUrl}</p>
               <p style={styles.clicks}><MousePointerClick size={14} style={{marginRight:'4px'}} /> {url.clicks.length} clicks</p>
             </div>
