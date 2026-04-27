@@ -51,7 +51,9 @@ function Analytics() {
       <div style={styles.card}>
         <h2 style={styles.cardTitle}>Link Details</h2>
         <p style={styles.shortUrl}><Link size={14} style={{marginRight:'4px'}} /> https://url-shortener-api-cvh5.onrender.com/{url.shortCode}</p>
-        <p style={styles.originalUrl}>Original: {url.originalUrl}</p>
+        <p style={{ wordBreak: 'break-all', fontSize: '14px', color: '#555' }}>
+  {url.originalUrl}
+</p>
         <p style={styles.created}>Created: {new Date(url.createdAt).toLocaleDateString()}</p>
       </div>
 
